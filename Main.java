@@ -2,42 +2,50 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner (System.in);
 
-        /*
-        nextLine para String
-        nextInt para enteros
-        nextDouble para doubles
+        System.out.println("Ingresa tu calle: ");
+        String calle = sc.nextLine();
+        System.out.println("Ingresa tu numero: ");
+        String numero = sc.nextLine();
+        System.out.println("Ingresa tu colonia: ");
+        String colonia = sc.nextLine();
 
+        System.out.println("Ingresa tu codigo postal: ");
+        String codigoPostal = sc.nextLine();
+        System.out.println("Ingresa tu ciudad: ");
+        String ciudad = sc.nextLine();
+        System.out.println("Ingresa tu estado: ");
+        String estado = sc.nextLine();
 
-        System.out.println("Ingresa tu año de nacimiento: ");
-        int añoNacimiento = sc.nextInt();
-        System.out.println(2024 - añoNacimiento);*/
-
-        int nUno = 0, nDos = 0, nTres = 0;
-        double nCuatro = 0, nCinco = 0;
-
-        System.out.println("Ingresa numero 1: ");
-        nUno = sc.nextInt();
-        System.out.println("Ingresa numero 2: ");
-        nDos = sc.nextInt();
-        System.out.println("Ingresa numero 3: ");
-        nTres = sc.nextInt();
-        System.out.println("Ingresa numero 4: ");
-        nCuatro = sc.nextDouble();
-        System.out.println("Ingresa numero 5: ");
-        nCinco = sc.nextDouble();
-
-        double opUno = nUno / nCuatro, opDos = (nTres + nDos) / nCinco, opTres = (nDos + nTres) * nCuatro;
-        double opCuatro = (nCinco / nUno) + (nDos / nTres) - nCuatro, opCinco = nUno + nDos + nTres;
-
-        double numerador = (opUno * opDos) / opTres;
-        double denominador = opCuatro / opCinco;
-        double total = numerador / denominador;
-
-        System.out.println(total);
+        System.out.println("Ingresa el nombre de tu primaria: ");
+        String nombrePrimaria = sc.nextLine();
+        System.out.println("Ingresa la ubicacion de tu primaria: ");
+        String ubicacionPrimaria = sc.nextLine();
 
 
-        //ejercicio 1 unidad 2
+        System.out.println("Ingresa el nombre de tu secundaria: ");
+        String nombreSecundaria = sc.nextLine();
+        System.out.println("Ingresa la ubicacion de tu secundaria: ");
+        String ubicacionSecundaria = sc.nextLine();
+
+        System.out.println("Ingresa el nombre de tu preparatoria: ");
+        String nombrePreparatoria = sc.nextLine();
+        System.out.println("Ingresa la ubicacion de tu preparatoria: ");
+        String ubicacionPreparatoria = sc.nextLine();
+
+        System.out.println("Ingresa el nombre de tu deporte favorito: ");
+        String deporteFavorito = sc.nextLine();
+        //No se que mas preguntar sobre el deporte :c
+
+        String datosDomicilio = "Tu domicilio es: "+calle+", número "+numero+", colonia "+colonia+", "+codigoPostal+", "
+                                 +ciudad+", "+estado+"\n";
+        String datosEscuela = "Estudiaste en la primaria "+nombrePrimaria+", ubicada en "+ubicacionPrimaria+
+                              ", fuiste a la secundaria "+nombreSecundaria+", en "+ubicacionSecundaria+", y la preparatoria en "
+                             +nombrePreparatoria+", en "+ubicacionPreparatoria;
+
+        String fin = datosDomicilio+datosEscuela+", y tu deporte favorito es "+deporteFavorito;
+
+        System.out.println(fin);
     }
 }
