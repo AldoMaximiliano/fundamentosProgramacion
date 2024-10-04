@@ -1,57 +1,41 @@
 public class Main {
     public static void main(String[] args) {
-        double xUno = 1, xDos = 4, xTres = 5, yUno = 2, yDos = 6, yTres = 3;
+        String correo = "juan.perez@empresa.com";
+        String fechaAscenso = "2023-04-15";
+        String salario = "50000.75";
 
-        //Lados
-        double distanciaA = Math.sqrt((Math.pow((xDos - xUno),2))+Math.pow(yDos-yUno,2));
-        double distanciaB = Math.sqrt((Math.pow((xDos - xTres),2))+Math.pow(yDos-yTres,2));
-        double distanciaC = Math.sqrt((Math.pow((xUno - xTres),2))+Math.pow(yUno-yTres,2));
+        int indiceArroba = correo.indexOf("@"); // 10
+        int primerGuion = fechaAscenso.indexOf('-');
+        int ultimoGuion = fechaAscenso.lastIndexOf('-');
+        int indicePunto = salario.indexOf('.');
 
-        //Perimetro
-        double perimetro = distanciaA+distanciaB+distanciaC;
+        String nombreCorreo = correo.substring(0,indiceArroba);
+        String nombreCorreoInvertido = "";
+        for (int i = nombreCorreo.length() - 1; i>=0;i--){
+             nombreCorreoInvertido += String.valueOf(nombreCorreo.charAt(i));
+        }
 
-        //Area
-        double a,b,c,s,area;
-        a = distanciaA;
-        b = distanciaB;
-        c = distanciaC;
+        String correoInvertido = nombreCorreoInvertido + correo.substring(indiceArroba);
 
-        s = (a + b + c) / 2;
-        area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+        int año = Integer.valueOf(fechaAscenso.substring(0,primerGuion));
+        int mes = Integer.valueOf(fechaAscenso.substring(primerGuion + 1,ultimoGuion));
+        int dia = Integer.valueOf(fechaAscenso.substring(ultimoGuion + 1));
 
-        //Altura desde el vertice
-        double altura = (2 * area) / a;
+        int fechaEncriptada = año + mes + dia;
 
-        //Angulos
-        double cosA = (Math.pow(b,2) + Math.pow(c,2) - Math.pow(a,2)  ) / (2 * b * c);
-        double anguloA = Math.toDegrees(Math.acos(cosA));
-        double cosB = (Math.pow(a,2) + Math.pow(c,2) - Math.pow(b,2)  ) / (2 * a * c);
-        double anguloB = Math.toDegrees(Math.acos(cosB));
-        double cosC = (Math.pow(a,2) + Math.pow(b,2) - Math.pow(c,2)  ) / (2 * a * b);
-        double anguloC = Math.toDegrees(Math.acos(cosC));
+        int enteroSalario = Integer.valueOf(salario.substring(0,indicePunto));
+        int decimalSalario = Integer.valueOf(salario.substring(indicePunto + 1));
+        
 
-        //Es equilatero?
-        boolean esEquilatero = Math.abs(a - b) + Math.abs(b - c) + Math.abs(c - a) == 0;
+        int restaSalario = enteroSalario - decimalSalario;
+        int salarioEncriptado = Math.abs(restaSalario) * 2;
 
-        //Puntos medios
-        double puntoABX = (xUno+xDos) / 2;
-        double puntoABY = (yUno+yDos) / 2;
-        double puntoBCX = (xDos+xTres) / 2;
-        double puntoBCY = (yDos+yTres) / 2;
-        double puntoCAX = (xUno+xTres) / 2;
-        double puntoCAY = (yUno+yTres) / 2;
-        System.out.println("Lado A: "+distanciaA);
-        System.out.println("Lado B: "+distanciaB);
-        System.out.println("Lado C: "+distanciaC);
-        System.out.println("El perimetro es: "+perimetro);
-        System.out.println("El área es: "+area);
-        System.out.println("La altura es: "+altura);
-        System.out.println("Angulo A: "+anguloA+" grados");
-        System.out.println("Angulo B: "+anguloB+" grados");
-        System.out.println("Angulo C: "+anguloC+" grados");
-        System.out.println("El triangulo es equilatero? "+esEquilatero);
-        System.out.println("Punto medio del lado AB: ("+puntoABX+"), ("+puntoABY+")");
-        System.out.println("Punto medio del lado BC: ("+puntoBCX+"), ("+puntoBCY+")");
-        System.out.println("Punto medio del lado CA: ("+puntoCAX+"), ("+puntoCAY+")");
+        System.out.println("Correo: "+correo);
+        System.out.println("Fecha de Ascenso: "+fechaAscenso);
+        System.out.println("Salario: "+salario);
+
+        System.out.println("Datos Encriptados:");
+        System.out.println(correoInvertido + "|" + fechaEncriptada + "|" + salarioEncriptado);
+
     }
 }
