@@ -1,15 +1,18 @@
 public class Main {
     public static void main(String[] args) {
-        String cadena = "supercalifragilisticoespialidoso";
+        String nombre = "Garcia, Juan Carlos";
 
-        System.out.println("Longitud: " + cadena.length());
-        System.out.println("Caracter en posicion: " + cadena.charAt(10));
-        System.out.println("En mayusculas: " + cadena.toUpperCase());
-        System.out.println("Subcadena (5,15): " + cadena.substring(5,15));
-        System.out.println("Primera ocurrencia de 'i': " + cadena.indexOf('i'));
-        System.out.println("Ultima ocurrencia de 'o': " + cadena.lastIndexOf('o'));
-        System.out.println("En minusculas: " + cadena.toLowerCase());
-        System.out.println("Subcadena (7,final): " + cadena.substring(7));
-        System.out.println("Ultima ocurrencia de la frase 'li': "+cadena.lastIndexOf("li"));
+        System.out.println("Longitud del nombre completo: " + nombre.length());
+        int indiceComa = nombre.indexOf(',');
+        int indiceEspacio = nombre.indexOf(' ');
+        int ultimoEspacio = nombre.lastIndexOf(' ');
+        System.out.println("Apellido: " + nombre.substring(0,indiceComa));
+        System.out.println("Nombre sin apellido: " + nombre.substring(indiceEspacio + 1));
+        System.out.println("Primer nombre: " + nombre.substring(indiceEspacio + 1,ultimoEspacio));
+        System.out.println("Apellido en mayusculas: " + nombre.substring(0,indiceComa).toUpperCase());
+        System.out.println("Nombre completo en minusculas: " + nombre.toLowerCase());
+        System.out.println("Caracter en la posicion 5: " + nombre.charAt(5 - 1));
+        System.out.println("Primera ocurrencia de 'a': " + nombre.indexOf('a'));
+        System.out.println("Ultima ocurrencia de 'a': " + nombre.lastIndexOf('a'));
     }
 }
